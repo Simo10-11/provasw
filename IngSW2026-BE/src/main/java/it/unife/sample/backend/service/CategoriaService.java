@@ -14,6 +14,7 @@ public class CategoriaService {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+    // Legge le categorie dal DB e le converte in DTO per l'API.
     public List<CategoriaDTO> getAllCategorie() {
         return categoriaRepository.findAll().stream()
                 .map(CategoriaMapper::toDTO)

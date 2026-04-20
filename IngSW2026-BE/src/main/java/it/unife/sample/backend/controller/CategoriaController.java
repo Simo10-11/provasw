@@ -16,6 +16,7 @@ public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
 
+    // Restituisce tutte le categorie per popolare la sidebar Angular.
     @GetMapping("/categorie")
     public List<CategoriaDTO> getCategorie() {
         return categoriaService.getAllCategorie();

@@ -5,6 +5,7 @@ import it.unife.sample.backend.model.Prodotto;
 
 public class ProdottoMapper {
 
+    // Classe utility: non deve essere istanziata.
     private ProdottoMapper() {
     }
 
@@ -20,6 +21,7 @@ public class ProdottoMapper {
         dto.setDESCRIZIONE(entity.getDescrizione());
         dto.setPREZZO(entity.getPrezzo());
         dto.setQUANTITA_DISPONIBILE(entity.getQuantitaDisponibile());
+        // Espone solo l'id della categoria nel DTO API.
         dto.setID_CATEGORIA(entity.getCategoria() != null ? entity.getCategoria().getId() : null);
         return dto;
     }
@@ -36,6 +38,7 @@ public class ProdottoMapper {
         entity.setDescrizione(dto.getDESCRIZIONE());
         entity.setPrezzo(dto.getPREZZO());
         entity.setQuantitaDisponibile(dto.getQUANTITA_DISPONIBILE());
+        // La relazione completa con Categoria viene impostata nel service quando serve.
         return entity;
     }
 }

@@ -30,20 +30,24 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Al caricamento pagina recupera subito categorie e prodotti.
     this.loadCategorie();
     this.loadProdotti();
   }
 
+  // Aggiorna il testo di ricerca dalla navbar.
   onSearchChange(value: string): void {
     this.searchValue = value.trim();
     this.applyFilters();
   }
 
+  // Aggiorna la categoria selezionata dalla sidebar.
   onCategorySelected(categoriaId: number | null | undefined): void {
     this.selectedCategoriaId = categoriaId ?? null;
     this.applyFilters();
   }
 
+  // Chiamata backend per caricare tutte le categorie.
   private loadCategorie(): void {
     this.categoriaService.getAllCategorie().subscribe({
       next: (data) => {
@@ -57,6 +61,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Chiamata backend per caricare tutti i prodotti.
   private loadProdotti(): void {
     this.productService.getAllProducts().subscribe({
       next: (data) => {
@@ -70,15 +75,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Applica i filtri in base a ricerca e categoria selezionata.
   private applyFilters(): void {
     const hasSearch = this.searchValue.length > 0;
     const hasCategoria = this.selectedCategoriaId !== null;
 
+    // Nessun filtro: mostra tutto.
     if (!hasSearch && !hasCategoria) {
       this.loadProdotti();
       return;
     }
 
+    // Solo ricerca per nome.
     if (hasSearch && !hasCategoria) {
       this.productService.searchByNome(this.searchValue).subscribe({
         next: (data) => {
@@ -93,6 +101,7 @@ export class HomeComponent implements OnInit {
       return;
     }
 
+    // Solo filtro per categoria.
     if (!hasSearch && hasCategoria) {
       this.productService.getByCategoria(this.selectedCategoriaId as number).subscribe({
         next: (data) => {
@@ -107,9 +116,9 @@ export class HomeComponent implements OnInit {
       return;
     }
 
+    // Filtro combinato: prima categoria dal backend, poi filtro nome lato frontend.
     this.productService.getByCategoria(this.selectedCategoriaId as number).subscribe({
       next: (data) => {
-        // Filtro combinato lato frontend: categoria + nome.
         this.prodotti = data.filter((p) => p.NOME.toLowerCase().includes(this.searchValue.toLowerCase()));
         this.errorMessage = '';
       },

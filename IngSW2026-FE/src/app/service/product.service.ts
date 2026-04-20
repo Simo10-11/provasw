@@ -8,25 +8,30 @@ import { Prodotto } from '../dto/prodotto.model';
 })
 export class ProductService {
 
+  // URL backend per i prodotti.
   private readonly apiUrl = 'http://localhost:8080/products';
 
   constructor(private http: HttpClient) {
   }
 
+  // Prende tutti i prodotti e li normalizza nel formato DTO atteso dal frontend.
   getAllProducts(): Observable<Prodotto[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(map((rows) => rows.map(this.toProdotto)));
   }
 
+  // Ricerca prodotti per nome.
   searchByNome(nome: string): Observable<Prodotto[]> {
     return this.http.get<any[]>(`${this.apiUrl}/search`, {
       params: { nome }
     }).pipe(map((rows) => rows.map(this.toProdotto)));
   }
 
+  // Filtra i prodotti per id categoria.
   getByCategoria(categoriaId: number): Observable<Prodotto[]> {
     return this.http.get<any[]>(`${this.apiUrl}/categoria/${categoriaId}`).pipe(map((rows) => rows.map(this.toProdotto)));
   }
 
+  // Uniforma i campi: supporta sia maiuscolo (DB style) sia camelCase/minuscolo.
   private toProdotto(row: any): Prodotto {
     return {
       ID: row.ID ?? row.id,
