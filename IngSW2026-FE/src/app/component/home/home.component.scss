@@ -1,0 +1,42 @@
+.home-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
+.products-area {
+  padding: 1rem 1.2rem;
+  background: #eef3f8;
+  min-height: calc(100vh - 70px);
+}
+
+h2 {
+  margin-top: 0;
+  color: #223047;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.empty-message {
+  background: #ffffff;
+  border: 1px dashed #94a3b8;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.error-message {
+  background: #ffe6e6;
+  color: #8b0000;
+  border: 1px solid #f0b4b4;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,12 @@
+<article class="card">
+  <img
+    src="https://via.placeholder.com/240x150?text=Prodotto"
+    alt="Immagine prodotto"
+  />
+
+  <h4>{{ prodotto.NOME }}</h4>
+  <p class="description">{{ prodotto.DESCRIZIONE || 'Nessuna descrizione disponibile' }}</p>
+  <p class="price">{{ prodotto.PREZZO | number:'1.2-2' }} EUR</p>
+
+  <button (click)="addToCart()">Aggiungi al carrello</button>
+</article>

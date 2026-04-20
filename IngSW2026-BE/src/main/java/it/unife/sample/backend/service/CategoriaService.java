@@ -1,0 +1,22 @@
+package it.unife.sample.backend.service;
+
+import it.unife.sample.backend.dto.CategoriaDTO;
+import it.unife.sample.backend.mapper.CategoriaMapper;
+import it.unife.sample.backend.repository.CategoriaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CategoriaService {
+
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
+    public List<CategoriaDTO> getAllCategorie() {
+        return categoriaRepository.findAll().stream()
+                .map(CategoriaMapper::toDTO)
+                .toList();
+    }
+}

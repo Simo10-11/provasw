@@ -1,0 +1,30 @@
+.sidebar {
+  background: #f7f9fc;
+  border-right: 1px solid #d9e1ea;
+  padding: 1rem;
+  min-height: calc(100vh - 70px);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: #223047;
+}
+
+.category-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #ced6e0;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.category-button.active {
+  background: #1f3a5f;
+  color: #ffffff;
+  border-color: #1f3a5f;
+}
