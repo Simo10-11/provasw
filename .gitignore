@@ -56,6 +56,3 @@ Thumbs.db
 
 .env
 .env.local
-
-.env
-application-local.yml
