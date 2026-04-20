@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Gestisce la logica applicativa per consultazione e ricerca prodotti.
+ */
 @Service
 public class ProdottoService {
 

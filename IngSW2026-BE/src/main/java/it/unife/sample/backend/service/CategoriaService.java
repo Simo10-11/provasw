@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Gestisce la logica applicativa per la lettura delle categorie.
+ */
 @Service
 public class CategoriaService {
 

@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * DTO usato dall'API per esporre i dati del prodotto.
+ */
 @Data
 public class ProdottoDTO {
 

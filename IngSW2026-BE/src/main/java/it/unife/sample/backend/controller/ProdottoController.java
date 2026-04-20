@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Espone gli endpoint REST per consultare e filtrare i prodotti.
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProdottoController {

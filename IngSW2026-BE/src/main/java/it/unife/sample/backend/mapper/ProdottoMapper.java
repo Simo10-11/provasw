@@ -3,6 +3,9 @@ package it.unife.sample.backend.mapper;
 import it.unife.sample.backend.dto.ProdottoDTO;
 import it.unife.sample.backend.model.Prodotto;
 
+/**
+ * Mapper statico per conversione tra Prodotto entity e ProdottoDTO.
+ */
 public class ProdottoMapper {
 
     // Classe utility: non deve essere istanziata.

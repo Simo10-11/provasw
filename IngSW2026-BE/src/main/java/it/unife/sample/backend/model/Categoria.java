@@ -8,6 +8,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+/**
+ * Entity JPA che rappresenta la tabella CATEGORIA.
+ */
 @Data
 @Entity
 @Table(name = "CATEGORIA")

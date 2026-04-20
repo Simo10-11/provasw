@@ -3,6 +3,9 @@ package it.unife.sample.backend.mapper;
 import it.unife.sample.backend.dto.CategoriaDTO;
 import it.unife.sample.backend.model.Categoria;
 
+/**
+ * Mapper statico per conversione tra Categoria entity e CategoriaDTO.
+ */
 public class CategoriaMapper {
 
     private CategoriaMapper() {

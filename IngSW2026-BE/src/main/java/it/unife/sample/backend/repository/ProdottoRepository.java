@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository Spring Data per operazioni CRUD e filtri sui prodotti.
+ */
 @Repository
 public interface ProdottoRepository extends JpaRepository<Prodotto, Integer> {
 

@@ -13,6 +13,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * Entity JPA che rappresenta la tabella PRODOTTO.
+ */
 @Data
 @Entity
 @Table(name = "PRODOTTO")

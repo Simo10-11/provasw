@@ -3,6 +3,9 @@ package it.unife.sample.backend.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+/**
+ * DTO usato dall'API per serializzare i dati della categoria.
+ */
 @Data
 public class CategoriaDTO {
 
