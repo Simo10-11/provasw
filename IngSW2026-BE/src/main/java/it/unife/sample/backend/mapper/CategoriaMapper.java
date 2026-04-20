@@ -18,9 +18,9 @@ public class CategoriaMapper {
         }
 
         CategoriaDTO dto = new CategoriaDTO();
-        dto.setID(entity.getId());
-        dto.setNOME(entity.getNome());
-        dto.setDESCRIZIONE(entity.getDescrizione());
+        dto.setId(entity.getId());
+        dto.setNome(entity.getNome());
+        dto.setDescrizione(entity.getDescrizione());
         return dto;
     }
 
@@ -31,9 +31,9 @@ public class CategoriaMapper {
         }
 
         Categoria entity = new Categoria();
-        entity.setId(dto.getID());
-        entity.setNome(dto.getNOME());
-        entity.setDescrizione(dto.getDESCRIZIONE());
+        entity.setId(dto.getId());
+        entity.setNome(dto.getNome());
+        entity.setDescrizione(dto.getDescrizione());
         return entity;
     }
 }

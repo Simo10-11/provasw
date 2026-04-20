@@ -14,6 +14,6 @@ export class ProductCardComponent {
 
   addToCart(): void {
     // Per ora stampiamo in console, poi qui andra la logica carrello.
-    console.log('Aggiunto al carrello:', this.prodotto.NOME);
+    console.log('Aggiunto al carrello:', this.prodotto.nome);
   }
 }

@@ -18,9 +18,9 @@ export class CategoriaService {
   getAllCategorie(): Observable<Categoria[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((rows) => rows.map((row) => ({
-        ID: row.ID ?? row.id,
-        NOME: row.NOME ?? row.nome,
-        DESCRIZIONE: row.DESCRIZIONE ?? row.descrizione
+        id: row.id ?? row.ID,
+        nome: row.nome ?? row.NOME,
+        descrizione: row.descrizione ?? row.DESCRIZIONE
       } as Categoria)))
     );
   }

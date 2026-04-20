@@ -12,9 +12,9 @@
   <button
     class="category-button"
     *ngFor="let categoria of categorie"
-    [class.active]="selectedId === categoria.ID"
-    (click)="selectCategory(categoria.ID)"
+    [class.active]="selectedId === categoria.id"
+    (click)="selectCategory(categoria.id)"
   >
-    {{ categoria.NOME }}
+    {{ categoria.nome }}
   </button>
 </aside>

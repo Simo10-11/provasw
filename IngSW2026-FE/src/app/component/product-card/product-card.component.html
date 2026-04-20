@@ -4,9 +4,9 @@
     alt="Immagine prodotto"
   />
 
-  <h4>{{ prodotto.NOME }}</h4>
-  <p class="description">{{ prodotto.DESCRIZIONE || 'Nessuna descrizione disponibile' }}</p>
-  <p class="price">{{ prodotto.PREZZO | number:'1.2-2' }} EUR</p>
+  <h4>{{ prodotto.nome }}</h4>
+  <p class="description">{{ prodotto.descrizione || 'Nessuna descrizione disponibile' }}</p>
+  <p class="price">{{ prodotto.prezzo | number:'1.2-2' }} EUR</p>
 
   <button (click)="addToCart()">Aggiungi al carrello</button>
 </article>

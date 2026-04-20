@@ -119,7 +119,7 @@ export class HomeComponent implements OnInit {
     // Filtro combinato: prima categoria dal backend, poi filtro nome lato frontend.
     this.productService.getByCategoria(this.selectedCategoriaId as number).subscribe({
       next: (data) => {
-        this.prodotti = data.filter((p) => p.NOME.toLowerCase().includes(this.searchValue.toLowerCase()));
+        this.prodotti = data.filter((p) => p.nome.toLowerCase().includes(this.searchValue.toLowerCase()));
         this.errorMessage = '';
       },
       error: (err) => {

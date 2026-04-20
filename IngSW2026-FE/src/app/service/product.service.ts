@@ -34,12 +34,12 @@ export class ProductService {
   // Uniforma i campi: supporta sia maiuscolo (DB style) sia camelCase/minuscolo.
   private toProdotto(row: any): Prodotto {
     return {
-      ID: row.ID ?? row.id,
-      NOME: row.NOME ?? row.nome,
-      DESCRIZIONE: row.DESCRIZIONE ?? row.descrizione,
-      PREZZO: row.PREZZO ?? row.prezzo,
-      QUANTITA_DISPONIBILE: row.QUANTITA_DISPONIBILE ?? row.quantitaDisponibile ?? row.quantita_disponibile,
-      ID_CATEGORIA: row.ID_CATEGORIA ?? row.idCategoria ?? row.id_categoria
+      id: row.id ?? row.ID,
+      nome: row.nome ?? row.NOME,
+      descrizione: row.descrizione ?? row.DESCRIZIONE,
+      prezzo: row.prezzo ?? row.PREZZO,
+      quantitaDisponibile: row.quantitaDisponibile ?? row.QUANTITA_DISPONIBILE ?? row.quantita_disponibile,
+      idCategoria: row.idCategoria ?? row.ID_CATEGORIA ?? row.id_categoria
     };
   }
 }

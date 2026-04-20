@@ -19,13 +19,13 @@ public class ProdottoMapper {
         }
 
         ProdottoDTO dto = new ProdottoDTO();
-        dto.setID(entity.getId());
-        dto.setNOME(entity.getNome());
-        dto.setDESCRIZIONE(entity.getDescrizione());
-        dto.setPREZZO(entity.getPrezzo());
-        dto.setQUANTITA_DISPONIBILE(entity.getQuantitaDisponibile());
+        dto.setId(entity.getId());
+        dto.setNome(entity.getNome());
+        dto.setDescrizione(entity.getDescrizione());
+        dto.setPrezzo(entity.getPrezzo());
+        dto.setQuantitaDisponibile(entity.getQuantitaDisponibile());
         // Espone solo l'id della categoria nel DTO API.
-        dto.setID_CATEGORIA(entity.getCategoria() != null ? entity.getCategoria().getId() : null);
+        dto.setIdCategoria(entity.getCategoria() != null ? entity.getCategoria().getId() : null);
         return dto;
     }
 
@@ -36,11 +36,11 @@ public class ProdottoMapper {
         }
 
         Prodotto entity = new Prodotto();
-        entity.setId(dto.getID());
-        entity.setNome(dto.getNOME());
-        entity.setDescrizione(dto.getDESCRIZIONE());
-        entity.setPrezzo(dto.getPREZZO());
-        entity.setQuantitaDisponibile(dto.getQUANTITA_DISPONIBILE());
+        entity.setId(dto.getId());
+        entity.setNome(dto.getNome());
+        entity.setDescrizione(dto.getDescrizione());
+        entity.setPrezzo(dto.getPrezzo());
+        entity.setQuantitaDisponibile(dto.getQuantitaDisponibile());
         // La relazione completa con Categoria viene impostata nel service quando serve.
         return entity;
     }
