@@ -32,7 +32,7 @@ CREATE TABLE `PRODOTTO` (
   `DESCRIZIONE` text,
   `PREZZO` decimal(10,2) NOT NULL,
   `QUANTITA_DISPONIBILE` int NOT NULL,
-  `IMMAGINE_URL` varchar(500) DEFAULT NULL,             -- ← aggiunto
+  `IMMAGINE_URL` varchar(500) DEFAULT NULL,             
   `ID_CATEGORIA` int NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_CATEGORIA_idx` (`ID_CATEGORIA`),

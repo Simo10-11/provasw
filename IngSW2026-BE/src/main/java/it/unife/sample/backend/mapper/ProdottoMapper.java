@@ -12,7 +12,7 @@ public class ProdottoMapper {
     private ProdottoMapper() {
     }
 
-    // Converte l'entity in DTO con nomi uguali al DB.
+    // Converte l'entity in DTO mantenendo il valore immagine letto dal DB.
     public static ProdottoDTO toDTO(Prodotto entity) {
         if (entity == null) {
             return null;
@@ -23,6 +23,7 @@ public class ProdottoMapper {
         dto.setNome(entity.getNome());
         dto.setDescrizione(entity.getDescrizione());
         dto.setPrezzo(entity.getPrezzo());
+        dto.setImageUrl(entity.getImageUrl());
         dto.setQuantitaDisponibile(entity.getQuantitaDisponibile());
         // Espone solo l'id della categoria nel DTO API.
         dto.setIdCategoria(entity.getCategoria() != null ? entity.getCategoria().getId() : null);
@@ -40,6 +41,7 @@ public class ProdottoMapper {
         entity.setNome(dto.getNome());
         entity.setDescrizione(dto.getDescrizione());
         entity.setPrezzo(dto.getPrezzo());
+        entity.setImageUrl(dto.getImageUrl());
         entity.setQuantitaDisponibile(dto.getQuantitaDisponibile());
         // La relazione completa con Categoria viene impostata nel service quando serve.
         return entity;

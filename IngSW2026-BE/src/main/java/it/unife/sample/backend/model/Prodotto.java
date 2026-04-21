@@ -35,6 +35,9 @@ public class Prodotto {
 	@Column(name = "PREZZO", nullable = false, precision = 10, scale = 2)
 	private BigDecimal prezzo;
 
+	@Column(name = "IMMAGINE_URL")
+	private String imageUrl;
+
 	@Column(name = "QUANTITA_DISPONIBILE", nullable = false)
 	private Integer quantitaDisponibile;
 
