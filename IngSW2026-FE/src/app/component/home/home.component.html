@@ -7,7 +7,25 @@
   ></app-sidebar>
 
   <main class="products-area">
-    <h2>Prodotti disponibili</h2>
+    <div class="products-header">
+      <div class="title-block">
+        <ng-container *ngIf="selectedCategoriaId === null; else selectedCategoryTitle">
+          <h2>Tutti i prodotti</h2>
+        </ng-container>
+
+        <ng-template #selectedCategoryTitle>
+          <h2>
+            <ng-container *ngFor="let categoria of categorie">
+              <ng-container *ngIf="categoria.id === selectedCategoriaId">
+                {{ categoria.nome }}
+              </ng-container>
+            </ng-container>
+          </h2>
+        </ng-template>
+
+        <p class="product-count">{{ prodotti.length }} prodotti trovati</p>
+      </div>
+    </div>
 
     <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
 
@@ -19,7 +37,13 @@
     </div>
 
     <ng-template #noProducts>
-      <p class="empty-message">Nessun prodotto trovato con i filtri selezionati.</p>
+      <div class="empty-state">
+        <svg class="empty-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1c.7 0 1.2.6 1.1 1.3l-1 6.2c-.1.8-.8 1.4-1.6 1.4H8.1c-.8 0-1.4-.5-1.6-1.2L4.7 3.8H2V2h3.2c.8 0 1.4.5 1.6 1.2L6.2 6Zm1 2 1.5 6h9.2l.9-6H7.2Z" fill="currentColor"/>
+        </svg>
+        <h3>Nessun prodotto trovato</h3>
+        <p>Prova a cercare qualcos'altro</p>
+      </div>
     </ng-template>
   </main>
 </div>

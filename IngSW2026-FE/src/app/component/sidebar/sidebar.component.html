@@ -6,7 +6,8 @@
     [class.active]="selectedId === null"
     (click)="selectCategory(null)"
   >
-    Tutte
+    <span class="category-emoji" aria-hidden="true">🛒</span>
+    <span class="category-label">Tutte</span>
   </button>
 
   <button
@@ -15,6 +16,7 @@
     [class.active]="selectedId === categoria.id"
     (click)="selectCategory(categoria.id)"
   >
-    {{ categoria.nome }}
+    <span class="category-emoji" aria-hidden="true">🥬</span>
+    <span class="category-label">{{ categoria.nome }}</span>
   </button>
 </aside>
