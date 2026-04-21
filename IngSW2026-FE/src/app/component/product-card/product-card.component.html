@@ -1,4 +1,16 @@
 <article class="card">
+  <button
+    class="wishlist-float-btn"
+    type="button"
+    (click)="addToWishlist()"
+    aria-label="Aggiungi alla lista desideri"
+    title="Lista desideri"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 20.7 3.9 13c-2.6-2.5-2.6-6.5-.1-9 2.3-2.3 6-2.5 8.5-.6 2.5-1.9 6.2-1.7 8.5.6 2.5 2.5 2.5 6.5-.1 9L12 20.7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
   <div class="image-wrap">
     <img
       [src]="getImageUrl()"
@@ -13,10 +25,45 @@
     <p class="price">{{ prodotto.prezzo | number:'1.2-2' }} EUR</p>
   </div>
 
-  <button class="cart-button" (click)="addToCart()">
-    <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  <div class="cart-quantity" aria-label="Controllo quantita carrello">
+    <button
+      class="quantity-btn"
+      type="button"
+      (click)="decreaseQuantity()"
+      [disabled]="quantityInCart === 0"
+      aria-label="Diminuisci quantita"
+    >
+      -
+    </button>
+
+    <div class="quantity-value">
+      <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1c.7 0 1.2.6 1.1 1.3l-1 6.2c-.1.8-.8 1.4-1.6 1.4H8.1c-.8 0-1.4-.5-1.6-1.2L4.7 3.8H2V2h3.2c.8 0 1.4.5 1.6 1.2L6.2 6Zm1 2 1.5 6h9.2l.9-6H7.2Z" fill="currentColor"/>
+      </svg>
+      <span>{{ quantityInCart }}</span>
+    </div>
+
+    <button
+      class="quantity-btn plus"
+      type="button"
+      (click)="increaseQuantity()"
+      aria-label="Aumenta quantita"
+    >
+      +
+    </button>
+  </div>
+
+  <button
+    class="cart-confirm-btn"
+    type="button"
+    (click)="confirmQuantity()"
+    [disabled]="quantityInCart === 0"
+    aria-label="Conferma quantita nel carrello"
+    title="Conferma carrello"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1c.7 0 1.2.6 1.1 1.3l-1 6.2c-.1.8-.8 1.4-1.6 1.4H8.1c-.8 0-1.4-.5-1.6-1.2L4.7 3.8H2V2h3.2c.8 0 1.4.5 1.6 1.2L6.2 6Zm1 2 1.5 6h9.2l.9-6H7.2Z" fill="currentColor"/>
     </svg>
-    <span>Aggiungi al carrello</span>
+    <span>Carrello</span>
   </button>
 </article>

@@ -14,10 +14,36 @@ export class ProductCardComponent {
   readonly embeddedFallbackImageUrl: string = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="150" viewBox="0 0 240 150"><rect width="240" height="150" fill="%23e2e8f0"/><text x="120" y="78" text-anchor="middle" font-family="Arial" font-size="16" fill="%23475569">Prodotto</text></svg>';
 
   @Input({ required: true }) prodotto!: Prodotto;
+  quantityInCart = 0;
+
+  increaseQuantity(): void {
+    this.quantityInCart += 1;
+  }
+
+  decreaseQuantity(): void {
+    if (this.quantityInCart === 0) {
+      return;
+    }
+
+    this.quantityInCart -= 1;
+    console.log('Rimosso dal carrello:', this.prodotto.nome, 'x', this.quantityInCart);
+  }
+
+  confirmQuantity(): void {
+    if (this.quantityInCart === 0) {
+      return;
+    }
+
+    this.addToCart();
+  }
+
+  addToWishlist(): void {
+    console.log('Aggiunto alla wishlist:', this.prodotto.nome);
+  }
 
   addToCart(): void {
     // Per ora stampiamo in console, poi qui andra la logica carrello.
-    console.log('Aggiunto al carrello:', this.prodotto.nome);
+    console.log('Aggiunto al carrello:', this.prodotto.nome, 'x', this.quantityInCart);
   }
 
   getImageUrl(): string {
